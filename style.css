@@ -1,91 +1,106 @@
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-body{
+
+body {
     height: 600px;
 }
-.container{
-    display:flex;
+
+.container {
+    display: flex;
     background-color: white;
     min-width: 700px;
     max-width: 700px;
-    /* background-color: white; */
-    height:560px;
-    margin-top:30px;
-    
-    margin-left:auto;
-    margin-right:auto;
+    height: 560px;
+    margin-top: 30px;
+
+    margin-left: auto;
+    margin-right: auto;
 }
-.items{
+
+.items {
     align-items: flex-start;
     justify-content: center;
-    
+
     max-width: 300px;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     overflow-y: scroll;
-    scrollbar-width:thick;
+    scrollbar-width: thick;
 
 }
 
-.content{
-    align-items:center;
+.content {
+    align-items: center;
     /* justify-content: center; */
-    
-    width:100%;
+
+    width: 100%;
     max-width: 100%;
     /* margin: 0 auto; */
-    min-height:50px;
+    min-height: 50px;
 }
-.text-content{
-    max-width: 50%;
+
+.text-content {
+    /*max-width: 50%; deleted */
     white-space: nowrap;
     text-overflow: ellipsis;
-    overflow-x:clip;
-    min-width: 50%;
-    margin-left:20px;
+    overflow-x: clip;
+    /*min-width: 50%; deleted*/
+    min-width: fit-content;
+    /*added now */
+    margin-left: 20px;
 }
-span{
-    max-width: 100%;
-    margin:auto;
-    border:none;
+
+span {
+
+    margin: auto;
+    border: none;
     text-align: center;
     word-wrap: break-word;
     display: inline-block;
-    max-height: 5%;
+    max-height: 7%;
     overflow: auto;
-}
-input{
     width: 100%;
-    margin:auto;
-    border:none;
+}
+
+input {
+    width: 100%;
+    margin: auto;
+    border: none;
     text-align: center;
     word-wrap: break-word;
 }
 
 .items div img {
-    width:10%;
+    width: 10%;
     height: 70%;
-    margin-left:5%;
+    margin-left: 5%;
+    min-width: 10%;
+    /*added now */
     /* margin:auto 0 auto; */
 }
-.flex{
+
+.flex {
     display: flex;
 }
-.selected{
+
+.selected {
     background-color: blue;
 }
-.contents{
+
+.contents {
     min-width: 50%;
-    flex-grow:1;
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
+    max-width: 50%;
 }
-.image{
-    width:100%;
-    height: 95%;
+
+.image {
+    width: 100%;
+    height: 93%;
 }

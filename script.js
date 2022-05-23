@@ -26,35 +26,40 @@ const setTextContentWidth = (item, text) => {
   let lenpartone = 1;
   let lenparttwo = part1.length;
   let ans = lenpartone;
-  if (item.clientWidth > (parent.clientWidth) * 0.7) {
-    while (lenpartone < lenparttwo) {
-      let midlen = parseInt((lenpartone + lenparttwo) / 2);
-      if (lenpartone === lenparttwo && lenpartone === part1.length) {
-        item.textContent = part1.substr(0, midlen) + part2.substr(-1 * (midlen - 1));
-      }
-      else {
-        item.textContent = part1.substr(0, midlen) + '...' + part2.substr(-1 * (midlen - 1));
-      }
-      if (item.clientWidth >= (parent.clientWidth) * 0.7) {
-        lenparttwo = midlen - 1;
-      }
-      else {
-        ans = midlen;
-        lenpartone = midlen + 1;
-      }
-    }
-    if (ans === part1.length) {
-      item.textContent = part1.substr(0, ans) + part2.substr(-1 * (ans - 1));
+
+  console.log("running");
+  while (lenpartone < lenparttwo) {
+    let midlen = parseInt((lenpartone + lenparttwo) / 2);
+    if (lenpartone === lenparttwo && lenpartone === part1.length) {
+      item.textContent = part1.substr(0, midlen) + part2.substr(-1 * (midlen - 1));
     }
     else {
-      item.textContent = part1.substr(0, ans) + '...' + part2.substr(-1 * (ans - 1));
+      item.textContent = part1.substr(0, midlen) + '...' + part2.substr(-1 * (midlen - 1));
+    }
+    if (item.clientWidth >= (parent.clientWidth) * 0.7) {
+      lenparttwo = midlen - 1;
+    }
+    else {
+      ans = midlen;
+      lenpartone = midlen + 1;
     }
   }
+  if (ans === part1.length) {
+    item.textContent = part1.substr(0, ans) + part2.substr(-1 * (ans - 1));
+  }
+  else {
+    item.textContent = part1.substr(0, ans) + '...' + part2.substr(-1 * (ans - 1));
+  }
+
 }
 const setTextContent = (item, text, checkwidth) => {
   item.textContent = text;
   if (checkwidth === true) {
-    setTextContentWidth(item, text);
+    const parent = item.parentNode;
+    console.log(item);
+    console.log(parent.clientWidth);
+    console.log(item.clientWidth);
+    (item.clientWidth > (parent.clientWidth) * 0.7) && setTextContentWidth(item, text);
   }
 }
 const addClass = (item, classes) => {

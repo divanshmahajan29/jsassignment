@@ -1,9 +1,24 @@
-import items from './data.js';
+let items = [];
+const getData = async () => {
+  try {
+    const result = await fetch('./data1.json');
+    return await result.json();
+
+  }
+  catch (error) {
+
+  }
+}
+const setItems = async () => {
+  items = await getData();
+
+}
+await setItems();
 const itemcontainer = document.querySelector(".items");
 const image = document.querySelector(".image");
 const displaytitle = document.querySelector(".title");
 let currentselectedindex = 0;
-const titleArray = []; //stores complete title 
+const titleArray = []; //stores complete title .
 const setTextContentWidth = (item, text) => {
   const parent = item.parentNode;
   const part1 = text.substr(0, Math.floor(text.length / 2));

@@ -26,8 +26,6 @@ const setTextContentWidth = (item, text) => {
   let lenpartone = 1;
   let lenparttwo = part1.length;
   let ans = lenpartone;
-
-  console.log("running");
   while (lenpartone < lenparttwo) {
     let midlen = parseInt((lenpartone + lenparttwo) / 2);
     if (lenpartone === lenparttwo && lenpartone === part1.length) {
@@ -56,9 +54,6 @@ const setTextContent = (item, text, checkwidth) => {
   item.textContent = text;
   if (checkwidth === true) {
     const parent = item.parentNode;
-    console.log(item);
-    console.log(parent.clientWidth);
-    console.log(item.clientWidth);
     (item.clientWidth > (parent.clientWidth) * 0.7) && setTextContentWidth(item, text);
   }
 }
